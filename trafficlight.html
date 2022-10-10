@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAFFIC LIGHT</title>
+</head>
+<style>
+    .main{
+        height: 500px;
+        width: 200px;
+        background-color: black;
+        margin: auto;
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+    }
+    .main1{
+        height: 100px;
+        width: 200px;
+        background-color: black;
+        color: white;
+        margin: auto;
+        border-radius: 8px;
+    }
+    #sec{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 50px;
+    }
+    #green{
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+    
+    }
+    #amber{
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        margin-top: 20px;
+        
+    }
+    #red{
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        margin-top: 20px;
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="main1">
+        <h1 id="sec"></h1>
+    </div>
+    <div class="main">
+    <div id="green">
+
+    </div>
+    <div id="amber">
+
+    </div>
+    <div id="red">
+
+    </div>
+    </div>
+</body>
+</html>
+<script>
+   
+    let counter = 10;
+    let light = 'red'
+    let sec = document.getElementById('sec');
+    let greenB = document.getElementById('green');
+    let amber = document.getElementById('amber');
+    let redB = document.getElementById('red');
+
+    timer = setInterval(() => {
+        if (counter == 0 && light == 'red') {
+          greenB.style.backgroundColor = 'green'
+          amber.style.backgroundColor = 'black'
+          redB.style.backgroundColor = 'black'
+          light = 'green'
+        }else if(counter > 0 && counter <= 4 && light == 'red'){
+            amber.style.backgroundColor = 'yellow'
+           
+        }else if(counter == 0 && light == 'green'){
+            redB.style.backgroundColor = 'red'
+            greenB.style.backgroundColor = 'black'
+            
+            light = 'red'
+        }
+        if (counter < 0) {
+            counter = 10
+        }
+        sec.innerHTML = counter;
+        counter --;
+    }, 1000);
+   
+
+
+</script>
